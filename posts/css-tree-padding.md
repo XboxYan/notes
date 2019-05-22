@@ -4,11 +4,11 @@ date: 2019-05-21 19:26:54
 tags: [css]
 published: true
 hideInList: false
-feature: 
+feature: /post-images/css-tree-padding.jpg
 ---
-## 多级菜单
-
 在平时的项目中会经常碰到这样一种布局，暂且称之为多级菜单吧
+
+<!-- more -->
 
 ![](https://xboxyan.codelabo.cn/post-images/1558439549223.png)
 
@@ -129,7 +129,119 @@ ul.parent>li>ul>li>ul>li>div{/**第三级**/
 
 ### 2.absolute半依赖定位
 
-未完待续...
+在讲这个方法之前，首先搞清楚一个问题
 
+`absolute`在不设置方向属性`left`，`top`，`right`，`bottom`时，默认位置是哪里？
+
+在我的学习过程中，很多地方讲到的都是说`absolute`是绝对定位，是相对于第一个有定位属性的父级的，所以基本上都是和`relative`一起使用，反正不管三七二十一，直接就给父级加上`position:relative`，有一个可靠的父级，看着比较靠谱，不是吗？
+
+其实，当元素设置了`absolute`属性，没有方向属性时，元素仍保留在原来位置，只是不占空间而已
+
+比如，我给上面每一项后面加一个角标
+
+```html
+ul.parent div:after{
+    content:'new';
+    font-size: 10px;
+    position:absolute;
+    margin-top: -5px;
+    color: red
+}
+```
+
+![](https://xboxyan.codelabo.cn/post-images/1558496262004.png)
+
+可以看到，虽然设置了`absolute`属性，但元素仍保留在原来位置，一旦设置了`left`等方位属性，就会查找第一个有定位属性的父级。
+
+现在，我们把`css`还原为默认的状态，也就是
+
+```css
+ul{
+	padding-left:40px;
+}
+```
+
+现在情况就和初始状态一致，选中范围逐层递减，那么，如何实现选中范围为通栏呢
+
+我们可以给最外层父级设置`position:relative`，因为通栏的宽度是相对于最外层的，然后给选中元素设置
+
+```css
+ul.parent div:hover:before{
+    content:'';
+    position:absolute;
+    left:0;
+    right:0;
+    height:21px;
+    background: violet;
+    z-index: -1;
+}
+```
+![](https://xboxyan.codelabo.cn/post-images/1558497025343.gif)
+
+这里只设置了水平方向的`left`和`right`，没有设置垂直方向上的属性，所以水平位置会跟随父级定位元素（这里是最外层），而垂直方向位置还是基于当前父级（这里是父级li元素）
+
+注意，这里的高度由于是基于最外层元素，所以，这里不能设置`height:100%`，那么，如何解决这一个小瑕疵呢，毕竟在这里写一个固定高度实在不怎么合适。
+
+这里有两种方式来优化。
+
+#### 方式一
+
+上面的方式如果不指定高度，由于没有内容，高度自然为0，解决方式也很简单，在`content`插入一个空字符或者透明字符即可
+
+```css
+ul.parent div:hover:before{
+    content:'\A0';
+}
+```
+
+或者
+
+```css
+ul.parent div:hover:before{
+    content:'任意字符';
+		color:transparent;
+}
+```
+
+#### 方式二
+
+通常子项目的高度都是固定的，可以给子项目手动指定一个高度，然后选中项继承该高度即可
+
+```css
+ul.parent div{
+	height:24px;
+	line-height:24px;
+}
+ul.parent div:hover:before{
+    content:'';
+		height:inherit
+}
+```
+
+注意这里的`height:inherit`是继承直接父级的高度，有兴趣的可以看[张鑫旭的这篇文章](https://www.zhangxinxu.com/wordpress/2015/02/different-height-100-height-inherit/)
+
+这样也实现了通栏的效果
+
+<p class="codepen" data-height="300" data-theme-id="34022" data-default-tab="html,result" data-user="xboxyan" data-slug-hash="PvOvog" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="css多级菜单">
+  <span>See the Pen <a href="https://codepen.io/xboxyan/pen/PvOvog/">
+  css多级菜单</a> by XboxYan (<a href="https://codepen.io/xboxyan">@xboxyan</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+## 小节
+
+上面介绍了两种实现通栏的方法，相比而言，`absolute`效果更好，也易于维护，可能一个并不怎么起眼的属性，有时候也能发挥出意想不到的效果。
+
+下面有一个案例，纯css实现，可以查看一下
+
+![](https://xboxyan.codelabo.cn/post-images/1558500656765.png)
+
+<p class="codepen" data-height="508" data-theme-id="34022" data-default-tab="css,result" data-user="xboxyan" data-slug-hash="VOrOvG" style="height: 508px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="css-tree">
+  <span>See the Pen <a href="https://codepen.io/xboxyan/pen/VOrOvG/">
+  css-tree</a> by XboxYan (<a href="https://codepen.io/xboxyan">@xboxyan</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 
