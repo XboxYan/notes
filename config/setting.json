@@ -1,0 +1,27 @@
+{
+  "config": {
+    "branch": "master",
+    "cname": "xboxyan.codelabo.cn",
+    "domain": "https://xboxyan.codelabo.cn",
+    "email": "yanwnebin1991@live.com",
+    "platform": "github",
+    "repository": "XboxYan.github.io",
+    "token": "72e1e9c1fdad769a04eacdbcb08e3dd3bfeaa5d1",
+    "username": "XboxYan"
+  },
+  "comment": {
+    "commentPlatform": "gitalk",
+    "disqusSetting": {
+      "api": "",
+      "apikey": "",
+      "shortname": ""
+    },
+    "gitalkSetting": {
+      "clientId": "76f6db0817582f8fcf7e",
+      "clientSecret": "0bff99f569efc8e061740c67585348de78e81e58",
+      "owner": "XboxYan",
+      "repository": "XboxYan.github.io"
+    },
+    "showComment": true
+  }
+}
