@@ -9,10 +9,12 @@ const Home = Loadable({
 	loading:Loader
 })
 
+/*
 const Archives = Loadable({
 	loader:()=>import('./archives'),
 	loading:Loader
 })
+*/
 
 const Categories = Loadable({
 	loader:()=>import('./categories'),
@@ -40,11 +42,13 @@ export default class extends PureComponent {
             <div className="app">
                 <Header {...this.props} />
                 <Route index cache='parent' component={Home} path="/home" />
-                <Route cache='parent' component={Archives} path="/archives" />
+                {
+                    //<Route cache='parent' component={Archives} path="/archives" />
+                }
                 <Route cache='parent' component={Categories} path="/categories" />
                 <Route cache='parent' component={About} path="/about" />
-                <Route component={Article} path="/article/:id" />
-                <Route cache='false' component={Search} path="/search" />
+                <Route component={Article} path="/article/:id>" />
+                <Route cache='false' component={Search} path="**search" />
             </div>
         );
     }

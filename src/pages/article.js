@@ -1,9 +1,10 @@
 import React, { PureComponent } from 'react';
 import fetchData from '../util/Fetch';
 import { Control,CacheLink } from 'react-keeper';
-import Donate from '../components/donate';
+//import Donate from '../components/donate';
 import Loader from '../components/loader';
 import Footer from '../components/footer';
+import Comment from '../components/comment';
 import Markview from '../components/markview';
 import { getArticleDetail } from '../util/api';
 import moment from 'moment';
@@ -65,6 +66,9 @@ export default class extends PureComponent {
                             </div>
                         </article>
                     }
+                    <Comment/>
+                    {
+                        /*
                     <div className="post-footer">
                         <div className="pf-left">
                             <img className="pf-avatar" alt="XboxYan" src={require("../img/header.png")} />
@@ -87,6 +91,8 @@ export default class extends PureComponent {
                             }
                         </div>
                     </div>
+                    */
+                    }
                 </section>
                 <Footer />
             </div>
