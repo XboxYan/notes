@@ -1,0 +1,325 @@
+hr {
+    margin: 1em 0;
+    border:0;
+    border-top: 1px solid #eee;
+}
+
+ol,ul {
+    margin-left: 22px;
+    padding-left: 0
+}
+
+ol p,ul p {
+    margin: 0
+}
+
+li {
+    font-size: 15px;
+    margin: 8px 0;
+    list-style-type: none;
+    position: relative
+}
+
+ul li:before {
+    position: absolute;
+    left: -12px;
+    top: 0;
+    content: "-";
+    width: 2px;
+    height: 2px
+}
+
+ol {
+    counter-reset:count;
+}
+
+ol li:before {
+    position: absolute;
+    left: -15px;
+    top: 0;
+    content: counter(count) '.'; 
+    counter-increment: count;
+    width: 2px;
+    height: 2px
+}
+
+pre {
+    overflow: auto;
+    margin: 20px 0;
+    font-size: 13.5px;
+    color: #4d4d4c;
+    background: #fcfdfd
+}
+
+code,.code,pre {
+    font-family: consolas
+}
+
+code, {
+    padding: 2px 4px;
+    word-wrap: break-word;
+    font-size: 13.5px
+}
+
+pre code {
+    padding: 0;
+    color: #4d4d4c;
+    background: none;
+    text-shadow: none
+}
+
+pre {
+    padding: 10px;
+    margin: 20px 0;
+    border-radius: 6px;
+    text-shadow: 1px 2px 1px rgba(0,0,0,.009);
+    box-shadow: 0 1px 2px rgba(0,0,0,.05)
+}
+
+pre table {
+    margin: 0;
+    width: auto;
+    border: none
+}
+
+pre td {
+    border: none;
+    padding: 0
+}
+
+pre figcaption {
+    font-size: 1em;
+    color: #4d4d4c;
+    line-height: 1em;
+    margin-bottom: 1em
+}
+
+pre figcaption:after,.highlight figcaption:before {
+    content: " ";
+    display: table
+}
+
+pre figcaption:after {
+    clear: both
+}
+
+pre figcaption a {
+    float: right;
+    color: #4d4d4c
+}
+
+pre figcaption a:hover {
+    border-bottom-color: #4d4d4c
+}
+
+pre .gutter pre {
+    margin: 0;
+    text-align: right;
+    font-size: 12px;
+    color: #606a6d;
+    font-family: Arial,"sans-serif"
+}
+
+pre .gutter pre {
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #fcfdfd
+}
+
+pre  pre {
+    width: 100%
+}
+
+pre .line, pre hr {
+    display: inline-block;
+    padding: 2px 0;
+    height: 20px;
+    border: none
+}
+
+pre .marked {
+    width: 100%;
+    border-left: 2px solid #727272;
+    margin: .5em 0;
+    padding-left: .5em
+}
+
+.gutter {
+    user-select: none
+}
+
+.gist table {
+    width: auto
+}
+
+.gist table td {
+    border: none
+}
+
+pre .deletion {
+    background: #fdd
+}
+
+pre .addition {
+    background: #dfd
+}
+
+pre .meta, pre .quote {
+    color: #8959a8
+}
+
+.code {
+    color: #4271ae
+}
+
+pre .comment {
+    color: #c6c6c6
+}
+
+pre .attribute,pre .name,pre .css .class,pre .css .id,pre .css .pseudo,pre .html .doctype,pre .regexp,pre .ruby .constant,pre .variable,pre .xml .doctype,pre .xml .pi,pre .xml .tag .title {
+    color: #e24c38
+}
+
+pre .tag{
+    color: #8e908c
+}
+
+pre .attr, pre .bullet{
+    color: #3e999f
+}
+
+pre .built_in,pre .symbol,pre .command,pre .constant,pre .literal,pre .number,pre .params,pre preprocessor {
+    color: #e78c45
+}
+
+pre .formula,pre .header,pre .inheritance,pre .number,pre .ruby .class .title,pre .ruby .symbol,pre .special,pre .string,pre .value,pre .xml .cdata {
+    color: #718c00
+}
+
+pre .css .hexcolor,pre .title {
+    color: #3e999f
+}
+
+pre .css .hexcolor,pre .title {
+    color: #3e999f
+}
+
+pre .css .selector-class {
+    color: #3e999f
+}
+
+pre .css .attribute {
+    color: #8293ef
+}
+
+pre .coffeescript .title,pre .function,pre .javascript .title,pre .perl .sub,pre .python .decorator,pre .python .title,pre .ruby .function .title,pre .ruby .title .keyword {
+    color: #4271ae
+}
+
+pre .javascript .function,pre .keyword, pre .section {
+    color: #e24c38
+}
+
+pre {
+    position: relative;
+    width: 100%
+}
+
+pre .emphasis{
+    font-style: italic;
+    color: #718c00
+}
+
+pre .strong{
+    font-weight: bold;
+    color: #8293ef
+}
+
+pre .link{
+    text-decoration: underline;
+    color: #e78c45
+}
+
+pre code:after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #ccc;
+    content: "Code";
+    font-size: 12px;
+    padding: 5px 10px 0;
+    height: 15px
+}
+
+code.html:after {
+    content: "HTML"
+}
+
+code.javascript:after,code.js:after {
+    content: "JS"
+}
+
+code.bash:after,code.sh:after,code.cmd:after,code.Powershell:after {
+    content: "Shell"
+}
+
+code.css:after {
+    content: "CSS"
+}
+
+code.sass:after {
+    content: "SASS"
+}
+
+code.less:after {
+    content: "LESS"
+}
+
+code.style:after {
+    content: "Style"
+}
+
+code.json:after {
+    content: "JSON"
+}
+
+code.markdown:after {
+    content: "MD"
+}
+
+code.diff:after {
+    content: "DIFF"
+}
+
+code.java:after {
+    content: "Java"
+}
+
+code.c:after {
+    content: "C"
+}
+
+code.yml:after {
+    content: "YML"
+}
+
+code.php:after {
+    content: "PHP"
+}
+
+code.react:after {
+    content: "REACT"
+}
+
+p code,h1 code,h2 code,h3 code,h4 code,h5 code,h6 code,li code {
+    padding: 2px 5px;
+    text-shadow: 1px 2px 1px rgba(0,0,0,.02);
+    box-shadow: 0 2px 2px rgba(0,0,0,.05);
+    color: #e26d6d;
+    margin: 0 .4em;
+    background: #fdfcfc
+}
+
+.preview thead{
+    background: #fcfdfd
+} 

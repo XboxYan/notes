@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#fff">
+    <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.png">
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>XboxYan' Blog</title>
+    <style>
+      html,body,#root {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+        font:300 14px -apple-system,BlinkMacSystemFont,Open Sans,Microsoft YaHei,Arial,"sans-serif";
+        background: #fff;
+      }
+      #evanyou-canvas {
+          z-index: 0!important;
+          position: absolute;
+          left:0;
+          right: 0;
+          top:0;
+          bottom: 0;
+          pointer-events: none
+      }
+      .loader{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 30vh;
+        height: 100%;
+      }
+      .gauge-loader:not(:required) {
+        background: #e26d6d;
+        -moz-border-radius-topleft: 32px;
+        -webkit-border-top-left-radius: 32px;
+        border-top-left-radius: 32px;
+        -moz-border-radius-topright: 32px;
+        -webkit-border-top-right-radius: 32px;
+        border-top-right-radius: 32px;
+        display: inline-block;
+        width: 64px;
+        height: 32px;
+        overflow: hidden;
+        position: relative;
+        text-indent: -9999px;
+      }
+      .gauge-loader:not(:required)::before {
+        -moz-animation: gauge-loader 4000ms infinite ease;
+        -webkit-animation: gauge-loader 4000ms infinite ease;
+        animation: gauge-loader 4000ms infinite ease;
+        background: white;
+        -moz-border-radius: 2px;
+        -webkit-border-radius: 2px;
+        border-radius: 2px;
+        content: '';
+        position: absolute;
+        left: 30px;
+        top: 5.33333px;
+        width: 4px;
+        height: 26.66667px;
+        -moz-transform-origin: 50% 100%;
+        -ms-transform-origin: 50% 100%;
+        -webkit-transform-origin: 50% 100%;
+        transform-origin: 50% 100%;
+      }
+      .gauge-loader:not(:required)::after {
+        content: '';
+        background: white;
+        -moz-border-radius: 8px;
+        -webkit-border-radius: 8px;
+        border-radius: 8px;
+        position: absolute;
+        left: 25.6px;
+        top: 25.6px;
+        width: 12.8px;
+        height: 12.8px;
+      }
+      @keyframes gauge-loader {
+      0% {
+        -moz-transform: rotate(-50deg);
+        transform: rotate(-50deg);
+      }
+      10% {
+        -moz-transform: rotate(20deg);
+        transform: rotate(20deg);
+      }
+      20% {
+        -moz-transform: rotate(60deg);
+        transform: rotate(60deg);
+      }
+      24% {
+        -moz-transform: rotate(60deg);
+        transform: rotate(60deg);
+      }
+      40% {
+        -moz-transform: rotate(-20deg);
+        transform: rotate(-20deg);
+      }
+      54% {
+        -moz-transform: rotate(70deg);
+        transform: rotate(70deg);
+      }
+      56% {
+        -moz-transform: rotate(78deg);
+        transform: rotate(78deg);
+      }
+      58% {
+        -moz-transform: rotate(73deg);
+        transform: rotate(73deg);
+      }
+      60% {
+        -moz-transform: rotate(75deg);
+        transform: rotate(75deg);
+      }
+      62% {
+        -moz-transform: rotate(70deg);
+        transform: rotate(70deg);
+      }
+      70% {
+        -moz-transform: rotate(-20deg);
+        transform: rotate(-20deg);
+      }
+      80% {
+        -moz-transform: rotate(20deg);
+        transform: rotate(20deg);
+      }
+      83% {
+        -moz-transform: rotate(25deg);
+        transform: rotate(25deg);
+      }
+      86% {
+        -moz-transform: rotate(20deg);
+        transform: rotate(20deg);
+      }
+      89% {
+        -moz-transform: rotate(25deg);
+        transform: rotate(25deg);
+      }
+      100% {
+        -moz-transform: rotate(-50deg);
+        transform: rotate(-50deg);
+      }
+    }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <canvas id="evanyou-canvas"></canvas>
+    <div id="root"><div class="loader"><span class="gauge-loader">Loading…</span></div></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>
