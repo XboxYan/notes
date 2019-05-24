@@ -10,7 +10,8 @@ export default class extends PureComponent {
         repo: 'notes',
         owner: 'XboxYan',
         admin: ['XboxYan'],
-        id: window.location.pathname,      // Ensure uniqueness and length less than 50
+        number:this.props.number,
+        //id: window.location.pathname,      // Ensure uniqueness and length less than 50
         distractionFreeMode: false  // Facebook-like distraction free mode
       })
       gitalk.render('gitalk-container')

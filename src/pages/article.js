@@ -36,7 +36,7 @@ export default class extends PureComponent {
 
     render() {
         const { article:{ title,createdAt,body,labels,prev,next }, isrender } = this.state;
-        
+        const number = Control.path.split('article/')[1];
         return (
             <div className="container">
                 <section className="main sildeUpMin">
@@ -66,7 +66,7 @@ export default class extends PureComponent {
                             </div>
                         </article>
                     }
-                    <Comment/>
+                    <Comment number={number}/>
                     {
                         /*
                     <div className="post-footer">
